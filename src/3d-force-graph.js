@@ -35,6 +35,7 @@ const linkedFGProps = Object.assign(...[
   'nodeAutoColorBy',
   'nodeOpacity',
   'nodeVisibility',
+  'nodesPerStack',
   'nodeThreeObject',
   'nodeThreeObjectExtend',
   'linkSource',
@@ -60,6 +61,7 @@ const linkedFGProps = Object.assign(...[
   'linkDirectionalParticleWidth',
   'linkDirectionalParticleColor',
   'linkDirectionalParticleResolution',
+  'connMode',
   'forceEngine',
   'd3AlphaDecay',
   'd3VelocityDecay',
@@ -74,7 +76,8 @@ const linkedFGMethods = Object.assign(...[
   'refresh',
   'd3Force',
   'd3ReheatSimulation',
-  'emitParticle'
+  'emitParticle',
+  'getDagDepths'
 ].map(p => ({ [p]: bindFG.linkMethod(p)})));
 
 // Expose config from renderObjs
@@ -120,6 +123,10 @@ export default Kapsule({
     onLinkHover: { default: () => {}, triggerUpdate: false },
     onBackgroundClick: { default: () => {}, triggerUpdate: false },
     onBackgroundRightClick: { default: () => {}, triggerUpdate: false },
+    iconLabel: { default: 'name', triggerUpdate: false },
+    onIconHover: { default: () => {}, triggerUpdate: false },
+    onIconClick: { default: () => {}, triggerUpdate: false },
+    onIconRightClick: { default: () => {}, triggerUpdate: false },
     ...linkedFGProps,
     ...linkedRenderObjsProps
   },
