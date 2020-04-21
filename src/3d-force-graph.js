@@ -178,9 +178,9 @@ export default Kapsule({
     ...linkedRenderObjsMethods
   },
 
-  stateInit: ({ controlType, rendererConfig }) => ({
+  stateInit: ({ controlType, rendererConfig, numDimensions }) => ({
     forceGraph: new ThreeForceGraph(),
-    renderObjs: ThreeRenderObjects({ controlType, rendererConfig })
+    renderObjs: ThreeRenderObjects({ controlType, rendererConfig, numDimensions })
   }),
 
   init: function(domNode, state) {
